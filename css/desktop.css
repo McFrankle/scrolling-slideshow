@@ -1,0 +1,14 @@
+body {height: calc(100vh + 24519px);}
+
+main {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#target {
+  width: 100%;
+  top: 0;
+  left: 0;
+}

@@ -1,0 +1,64 @@
+html {background-color: #000000;}
+body {margin: 0;}
+
+#splash {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  /* overflow-x: hidden; */
+
+  background: url('../noise.png');
+  animation: animate .5s steps(10) infinite;
+}
+
+#splash-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+}
+
+#splash a {
+  text-decoration: none;
+  font-size: 54px;
+}
+
+#splash h1 {
+  margin: 0 0 -16px 0;
+  padding: 0;
+  font-size: 200px;
+  font-weight: normal;
+}
+
+#splash a, #splash h1 {
+  text-shadow: #818181 1px 0 10px;
+  text-transform: uppercase;
+  font-family: 'Bebas Neue', serif;
+  color: #818181;
+  display: block;
+}
+
+#splash, #splash a, #splash h1 {
+  -webkit-transition: 0.3s;
+     -moz-transition: 0.3s;
+      -ms-transition: 0.3s;
+       -o-transition: 0.3s;
+          transition: 0.3s;
+}
+
+#splash a:hover, #splash a:focus {
+  color: #f1f1f1;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+/* @media screen and (max-height: 450px) {#splash a {font-size: 20px}} */
