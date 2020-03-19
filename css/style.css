@@ -8,7 +8,7 @@ body {margin: 0;}
   z-index: 1;
   top: 0;
   left: 0;
-  /* overflow-x: hidden; */
+  /* overflow: scroll; */
 
   background: url('../noise.png');
   animation: animate .5s steps(10) infinite;
@@ -18,7 +18,6 @@ body {margin: 0;}
   position: relative;
   top: 25%;
   width: 100%;
-  text-align: center;
 }
 
 #splash a {
@@ -34,11 +33,12 @@ body {margin: 0;}
 }
 
 #splash a, #splash h1 {
+  display: flex;
+  justify-content: center;
   text-shadow: #818181 1px 0 10px;
   text-transform: uppercase;
   font-family: 'Bebas Neue', serif;
   color: #818181;
-  display: block;
 }
 
 #splash, #splash a, #splash h1 {
