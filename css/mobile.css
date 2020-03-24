@@ -1,14 +1,11 @@
 html {background-color: #ffffff;}
 #splash {opacity: 1;}
 #target {
-  position: absolute;
-  transform: translate(-50%, -50%);
-
   opacity: 0;
 
-  -webkit-transition: opacity 0.25s;
+  /* -webkit-transition: opacity 0.25s;
      -moz-transition: opacity 0.25s;
       -ms-transition: opacity 0.25s;
-       -o-transition: opacity 0.25s;
+       -o-transition: opacity 0.25s; */
           transition: opacity 0.25s;
 }

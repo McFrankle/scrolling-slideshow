@@ -8,28 +8,28 @@ body {margin: 0;}
   z-index: 1;
   top: 0;
   left: 0;
-  /* overflow: scroll; */
 
   background: url('../noise.png');
-  animation: animate .5s steps(10) infinite;
+  -webkit-animation: animate .5s steps(10) infinite; /* Chr, Saf */
+          animation: animate .5s steps(10) infinite; /* IE >9, Fx >15, Op >12.0 */
 }
 
 #splash-content {
   position: relative;
   top: 50%;
   width: 100%;
-  margin-top: -178px;
+  margin-top: -70px;
 }
 
 #splash a {
   text-decoration: none;
-  font-size: 54px;
+  font-size: 24px;
 }
 
 #splash h1 {
   margin: 0 0 -16px 0;
   padding: 0;
-  font-size: 200px;
+  font-size: 80px;
   font-weight: normal;
 }
 
@@ -43,15 +43,24 @@ body {margin: 0;}
 }
 
 #splash, #splash a, #splash h1 {
-  -webkit-transition: 0.3s;
+  /* -webkit-transition: 0.3s;
      -moz-transition: 0.3s;
       -ms-transition: 0.3s;
-       -o-transition: 0.3s;
+       -o-transition: 0.3s; */
           transition: 0.3s;
 }
 
 #splash a:hover, #splash a:focus {
   color: #f1f1f1;
+}
+
+@-webkit-keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
 }
 
 @keyframes animate {
@@ -62,4 +71,21 @@ body {margin: 0;}
     background-position: 100% 100%;
   }
 }
-/* @media screen and (max-height: 450px) {#splash a {font-size: 20px}} */
+
+/* @media screen and (max-width: 360px) {
+  #splash-content {margin-top: -70px}
+  #splash h1 {font-size: 80px}
+  #splash a {font-size: 24px}
+}
+
+@media screen and (max-width: 375px) {
+  #splash-content {margin-top: -76px}
+  #splash h1 {font-size: 85px}
+  #splash a {font-size: 26px}
+}
+
+@media screen and (max-width: 414px) {
+  #splash-content {margin-top: -84px}
+  #splash h1 {font-size: 94px}
+  #splash a {font-size: 28px}
+} */

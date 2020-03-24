@@ -1,4 +1,4 @@
-const vh = 4080;
+var ih, iw;
 var s, t, w, h;
 
 function updateDisplay() {
@@ -6,9 +6,16 @@ function updateDisplay() {
   w = $(window).width();
   h = $(window).height();
 
+  iw = 5.5 * w;
+
+  t.width = iw + "px";
+  ih = document.getElementById("target").offsetHeight;
+
   // center image
-  t.top = 0.035 * vh + h/2 + "px";
-  t.left = w/2 + "px";
+  document.documentElement.scrollTop = 0.46 * ih - h/2;
+  document.documentElement.scrollLeft = iw/2 - w/2;
+      document.body.scrollTop        = 0.46 * ih - h/2;
+      document.body.scrollLeft       = ih/2 - h/2;
 }
 
 window.onresize = debounce(updateDisplay, 500);
@@ -31,7 +38,8 @@ $(window).on("load", function(){
     setTimeout(function () {
 
       // show the main image
-      document.getElementById("target").style.opacity = 1;
+      t.opacity = 1;
+
     }, 250);
   }, 250);
 });

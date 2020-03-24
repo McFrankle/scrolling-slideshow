@@ -129,15 +129,10 @@ function drawTrack() {
 }
 
 function makeMagic() {
-	// enterSite();
-
-	// Replace default (mobile) styling with desktop styling
-	// t.top = 0;
-	// t.left = 0;
-	// t.transform = "translate(0, 0)";
-
+	// initiate ScrollMagic controller
 	c = new ScrollMagic.Controller();
 
+	// create ScrollMagic scenes
 	s01 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
