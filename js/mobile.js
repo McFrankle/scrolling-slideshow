@@ -18,7 +18,7 @@ function updateDisplay() {
       document.body.scrollLeft       = ih/2 - h/2;
 }
 
-window.onresize = debounce(updateDisplay, 500);
+// window.onresize = debounce(updateDisplay, 500);
 
 // Wait for all assets (including images) to be loaded
 $(window).on("load", function(){
