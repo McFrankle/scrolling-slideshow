@@ -21,15 +21,15 @@ var t;
 
 // scenes
 var s01, s02, s03, s04, s05, s06, s07, s08, s09, s10, s11,
-	s12, s13, s14, s15, s16, s17, s18, s19, s20, s21;
+	s12, s13, s14, s15, s16, s17, s18, s19, s20, s21, s22;
 
 // tweens
 var t01, t02, t03, t04, t05, t06, t07, t08, t09, t10, t11,
-	t12, t13, t14, t15, t16, t17, t18, t19, t20, t21;
+	t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22;
 
 // property values for tweens
 var v01F, v01T, v02, v03, v04, v05, v06, v07, v08, v09, v10,
-	v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21;
+	v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22;
 
 function drawTrack() {
 
@@ -41,67 +41,73 @@ function drawTrack() {
 	zw = z * vw;
 	zh = zw * (ih / iw);
 
+	// Set super-zoom
+	zws = zw * 1.10;
+	zhs = zws * (ih / iw);
+
 	// Set property values (the destinations along your path)
-	v20  = {y: vh/2, ease: Linear.easeInOut};
-	v21  = {...v20, x: vw/2};
-	v01F = {...v21, xPercent: -50, yPercent: -50};
-	v01T = {width: zw,      y:  0.035 * zh + vh/2, ease: Linear.easeInOut};
-	v02  = {x: -0.100 * zw, y:  0.500 * zh, ease: Linear.easeIn        };
-	v03  = {x: -(3/14)* zw,                 ease: Linear.easeOut};
-	v04  = {                y:  0.220 * zh + vh/2, ease: Linear.easeInOut};
-	v05  = {x: -0.150 * zw, ease: Linear.easeIn                       };
-	v06  = {x:  0.400 * zw, y:  0.500 * zh, ease: Linear.easeNone   };
-	v07  = {x:  0.500 * zw,    ease: Linear.easeOut                 };
-	v08  = {                    y: -0.030 * zh + vh/2, ease: Linear.easeInOut};
-	v09  = {x:  0.450 * zw, ease: Linear.easeIn                        };
-	v10  = {x: -0.080 * zw, y: -0.140 * zh + vh/2, ease: Linear.easeNone};
-	v11  = {x: -0.185 * zw, ease: Linear.easeOut                      };
-	v12  = {                    y: -0.500 * zh + vh, ease: Linear.easeInOut};
-	v13  = {x: -0.100 * zw, ease: Linear.easeIn                      };
-	v14  = {x:  0.450 * zw, y: -0.460 * zh + vh, ease: Linear.easeOut};
-	v15  = {                    y: -0.305 * zh + vh/2, ease: Linear.easeInOut};
-	v16  = {x:  0.370 * zw, ease: Linear.easeIn            };
-	v17  = {x:  0.280 * zw, y:  0.250 * zh + vh/2, ease: Linear.easeOut};
-	v18  = {x:  0.140 * zw, ease: Linear.easeInOut            };
-	v19  = {x: -(3/14)* zw, y:  0.080 * zh + vh/2, ease: Linear.easeIn};
+	v21  = {y: vh/2, ease: Linear.easeInOut};
+	v22  = {...v21, x: vw/2};
+	v01F = {...v22, xPercent: -50, yPercent: -50};
+	v01T = {width: zws,      y:  0.035 * zhs + vh/2, ease: Power1.easeIn};
+	v02 = {width: zw,      y:  0.035 * zh + vh/2, ease: Power1.easeOut};
+	v03  = {x: -0.100 * zw, y:  0.500 * zh, ease: Power1.easeInOut        };
+	v04  = {x: -(3/14)* zw,                 ease: Power1.easeInOut};
+	v05  = {                y:  0.220 * zh + vh/2, ease: Linear.easeInOut};
+	v06  = {x: -0.150 * zw, ease: Power1.easeIn                       };
+	v07  = {x:  0.400 * zw, y:  0.500 * zh, ease: Power1.easeInOut   };
+	v08  = {x:  0.500 * zw,    ease: Power1.easeInOut                 };
+	v09  = {                    y: -0.030 * zh + vh/2, ease: Linear.easeInOut};
+	v10  = {x:  0.450 * zw, ease: Power1.easeIn                        };
+	v11  = {x: -0.080 * zw, y: -0.140 * zh + vh/2, ease: Power1.easeInOut};
+	v12  = {x: -0.185 * zw, ease: Linear.easeOut                      };
+	v13  = {                    y: -0.500 * zh + vh, ease: Linear.easeInOut};
+	v14  = {x: -0.100 * zw, ease: Power1.easeIn                      };
+	v15  = {x:  0.450 * zw, y: -0.460 * zh + vh, ease: Power1.easeOut};
+	v16  = {                    y: -0.305 * zh + vh/2, ease: Linear.easeInOut};
+	v17  = {x:  0.370 * zw, ease: Linear.easeIn            };
+	v18  = {x:  0.280 * zw, y:  0.250 * zh + vh/2, ease: Linear.easeOut};
+	v19  = {x:  0.140 * zw, ease: Linear.easeInOut            };
+	v20  = {x: -(3/14)* zw, y:  0.080 * zh + vh/2, ease: Linear.easeIn};
 
   // Ensure the image fills the whole window at the beginning and end
   if (vw / vh >= iw / ih) { // Landscape display mode
 		v01F = {...v01F, width: "100%", height: "auto"};
-		v21  = {...v21,  width: "100%"};
+		v22  = {...v22,  width: "100%"};
   } else { // Portrait display mode
 		v01F = {...v01F, height: "100%", width: "auto"};
 		v01T = {...v01T, height: "auto"};
-		v21  = {...v21,  height: "100%", width: "auto"};
+		v22  = {...v22,  height: "100%", width: "auto"};
   }
 
 	// Build tweens
 	t01 = TweenMax.fromTo("#target", 2, v01F, v01T);
 
 	t02 = TweenMax.to("#target", 1, v02);
-	t03 = TweenMax.to("#target", 1, v03); // A BROKEN SEARCH
-	t04 = TweenMax.to("#target", 1, v04);
+	t03 = TweenMax.to("#target", 1, v03);
+	t04 = TweenMax.to("#target", 1, v04); // A BROKEN SEARCH
 	t05 = TweenMax.to("#target", 1, v05);
 	t06 = TweenMax.to("#target", 1, v06);
-	t07 = TweenMax.to("#target", 1, v07); // OUR APPROACH
-	t08 = TweenMax.to("#target", 1, v08);
+	t07 = TweenMax.to("#target", 1, v07);
+	t08 = TweenMax.to("#target", 1, v08); // OUR APPROACH
 	t09 = TweenMax.to("#target", 1, v09);
 	t10 = TweenMax.to("#target", 1, v10);
-	t11 = TweenMax.to("#target", 1, v11); // JAKE
-	t12 = TweenMax.to("#target", 1, v12);
+	t11 = TweenMax.to("#target", 1, v11);
+	t12 = TweenMax.to("#target", 1, v12); // JAKE
 	t13 = TweenMax.to("#target", 1, v13);
 	t14 = TweenMax.to("#target", 1, v14);
-	t15 = TweenMax.to("#target", 1, v15); // REFERENCE FILMS
-	t16 = TweenMax.to("#target", 1, v16);
+	t15 = TweenMax.to("#target", 1, v15);
+	t16 = TweenMax.to("#target", 1, v16); // REFERENCE FILMS
 	t17 = TweenMax.to("#target", 1, v17);
-	t18 = TweenMax.to("#target", 1, v18); // PROJECT TIMELINE
-	t19 = TweenMax.to("#target", 1, v19);
-	t20 = TweenMax.to("#target", 1, v20); // CONTACT
-	t21 = TweenMax.to("#target", 1, v21);
+	t18 = TweenMax.to("#target", 1, v18);
+	t19 = TweenMax.to("#target", 1, v19); // PROJECT TIMELINE
+	t20 = TweenMax.to("#target", 1, v20);
+	t21 = TweenMax.to("#target", 1, v21); // CONTACT
+	t22 = TweenMax.to("#target", 1, v22);
 
 	c.removeScene([
 		s01, s02, s03, s04, s05, s06, s07, s08, s09, s10, s11,
-		s12, s13, s14, s15, s16, s17, s18, s19, s20, s21
+		s12, s13, s14, s15, s16, s17, s18, s19, s20, s21, s22
 	]);
 
 	// set tweens to scenes and add scenes to the controller
@@ -126,6 +132,7 @@ function drawTrack() {
 	s19.setTween(t19).addIndicators().addTo(c);
 	s20.setTween(t20).addIndicators().addTo(c);
 	s21.setTween(t21).addIndicators().addTo(c);
+	s22.setTween(t22).addIndicators().addTo(c);
 }
 
 function makeMagic() {
@@ -136,148 +143,155 @@ function makeMagic() {
 	s01 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 1000,
+		duration: 800,
 		offset: 19
 	});
 
 	s02 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 2000,
-		offset: 1019
+		duration: 100,
+		offset: 819
 	});
 
 	s03 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 500,
-		offset: 3019
+		duration: 1500,
+		offset: 1000
 	});
 
 	s04 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 1000,
-		offset: 3519
+		duration: 500,
+		offset: 2400
 	});
 
 	s05 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 500,
-		offset: 4519
+		duration: 2000,
+		offset: 3000
 	});
 
 	s06 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 2000,
-		offset: 5019
+		duration: 400,
+		offset: 4800
 	});
 
 	s07 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 500,
-		offset: 7019
+		duration: 2000,
+		offset: 5200
 	});
 
 	s08 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 2000,
-		offset: 7519
+		duration: 500,
+		offset: 7100
 	});
 
 	s09 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 500,
-		offset: 9519
+		duration: 2000,
+		offset: 7600
 	});
 
 	s10 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 2000,
-		offset: 10019
+		duration: 500,
+		offset: 9400
 	});
 
 	s11 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 500,
-		offset: 12019
+		duration: 2000,
+		offset: 9900
 	});
 
 	s12 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 1000,
-		offset: 12519
+		duration: 500,
+		offset: 11900
 	});
 
 	s13 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 500,
-		offset: 13519
+		duration: 2000,
+		offset: 12500
 	});
 
 	s14 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 2000,
-		offset: 14019
+		duration: 500,
+		offset: 14400
 	});
 
 	s15 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 1000,
-		offset: 16019
+		duration: 2000,
+		offset: 14900
 	});
 
 	s16 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
 		duration: 500,
-		offset: 17019
+		offset: 17000
 	});
 
 	s17 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 2000,
-		offset: 17519
+		duration: 1000,
+		offset: 17500
 	});
 
 	s18 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
 		duration: 1000,
-		offset: 19519
+		offset: 18500
 	});
 
 	s19 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 2000,
-		offset: 20519
+		duration: 1000,
+		offset: 19500
 	});
 
 	s20 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
-		duration: 1000,
-		offset: 22519
+		duration: 1500,
+		offset: 20500
 	});
 
 	s21 = new ScrollMagic.Scene({
 		triggerElement: "#trigger",
 		triggerHook: "onLeave",
 		duration: 1000,
-		offset: 23519
+		offset: 22000
+	});
+
+	s22 = new ScrollMagic.Scene({
+		triggerElement: "#trigger",
+		triggerHook: "onLeave",
+		duration: 1000,
+		offset: 23000
 	});
 }
 
