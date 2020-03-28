@@ -111,28 +111,28 @@ function drawTrack() {
 	]);
 
 	// set tweens to scenes and add scenes to the controller
-	s01.setTween(t01).addIndicators().addTo(c);
-	s02.setTween(t02).addIndicators().addTo(c);
-	s03.setTween(t03).addIndicators().addTo(c);
-	s04.setTween(t04).addIndicators().addTo(c);
-	s05.setTween(t05).addIndicators().addTo(c);
-	s06.setTween(t06).addIndicators().addTo(c);
-	s07.setTween(t07).addIndicators().addTo(c);
-	s08.setTween(t08).addIndicators().addTo(c);
-	s09.setTween(t09).addIndicators().addTo(c);
-	s10.setTween(t10).addIndicators().addTo(c);
-	s11.setTween(t11).addIndicators().addTo(c);
-	s12.setTween(t12).addIndicators().addTo(c);
-	s13.setTween(t13).addIndicators().addTo(c);
-	s14.setTween(t14).addIndicators().addTo(c);
-	s15.setTween(t15).addIndicators().addTo(c);
-	s16.setTween(t16).addIndicators().addTo(c);
-	s17.setTween(t17).addIndicators().addTo(c);
-	s18.setTween(t18).addIndicators().addTo(c);
-	s19.setTween(t19).addIndicators().addTo(c);
-	s20.setTween(t20).addIndicators().addTo(c);
-	s21.setTween(t21).addIndicators().addTo(c);
-	s22.setTween(t22).addIndicators().addTo(c);
+	s01.setTween(t01).addTo(c);
+	s02.setTween(t02).addTo(c);
+	s03.setTween(t03).addTo(c);
+	s04.setTween(t04).addTo(c);
+	s05.setTween(t05).addTo(c);
+	s06.setTween(t06).addTo(c);
+	s07.setTween(t07).addTo(c);
+	s08.setTween(t08).addTo(c);
+	s09.setTween(t09).addTo(c);
+	s10.setTween(t10).addTo(c);
+	s11.setTween(t11).addTo(c);
+	s12.setTween(t12).addTo(c);
+	s13.setTween(t13).addTo(c);
+	s14.setTween(t14).addTo(c);
+	s15.setTween(t15).addTo(c);
+	s16.setTween(t16).addTo(c);
+	s17.setTween(t17).addTo(c);
+	s18.setTween(t18).addTo(c);
+	s19.setTween(t19).addTo(c);
+	s20.setTween(t20).addTo(c);
+	s21.setTween(t21).addTo(c);
+	s22.setTween(t22).addTo(c);
 }
 
 function makeMagic() {
