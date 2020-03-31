@@ -107,3 +107,8 @@ body {margin: 0;}
   #splash h1 {font-size: 292px}
   #splash a {font-size: 86px}
 }
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url(BebasNeue-Regular.ttf);
+}
